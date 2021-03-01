@@ -1,0 +1,118 @@
+\hypertarget{grille_8h}{}\section{include/grille.h File Reference}
+\label{grille_8h}\index{include/grille.\+h@{include/grille.\+h}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+Include dependency graph for grille.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{grille_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{grille_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structgrille}{grille}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{grille_8h_ae621f51c60aa4fafaa0c9f6c9b5a4036}{alloue\+\_\+grille} (int l, int c, \hyperlink{structgrille}{grille} $\ast$g)
+\item 
+void \hyperlink{grille_8h_a7074b2b15576e9d2b3cd15c3a1dc7012}{libere\+\_\+grille} (\hyperlink{structgrille}{grille} $\ast$g)
+\item 
+void \hyperlink{grille_8h_adf5501cc0bbad28f5ffc561d92197e4e}{init\+\_\+grille\+\_\+from\+\_\+file} (char $\ast$filename, \hyperlink{structgrille}{grille} $\ast$g)
+\item 
+void \hyperlink{grille_8h_a63b3ae16c86b568f6aa8f9ce84128b1e}{copie\+\_\+grille} (\hyperlink{structgrille}{grille} gs, \hyperlink{structgrille}{grille} gd)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+header pour les grilles \begin{DoxyAuthor}{Author}
+Marlind Tahiri 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{grille_8h_ae621f51c60aa4fafaa0c9f6c9b5a4036}\label{grille_8h_ae621f51c60aa4fafaa0c9f6c9b5a4036}} 
+\index{grille.\+h@{grille.\+h}!alloue\+\_\+grille@{alloue\+\_\+grille}}
+\index{alloue\+\_\+grille@{alloue\+\_\+grille}!grille.\+h@{grille.\+h}}
+\subsubsection{\texorpdfstring{alloue\+\_\+grille()}{alloue\_grille()}}
+{\footnotesize\ttfamily void alloue\+\_\+grille (\begin{DoxyParamCaption}\item[{int}]{l,  }\item[{int}]{c,  }\item[{\hyperlink{structgrille}{grille} $\ast$}]{g }\end{DoxyParamCaption})}
+
+alloue une grille
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & nombre de lignes \\
+\hline
+{\em c} & nombre de colonnes \\
+\hline
+{\em g} & grille a allouer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{grille_8h_a63b3ae16c86b568f6aa8f9ce84128b1e}\label{grille_8h_a63b3ae16c86b568f6aa8f9ce84128b1e}} 
+\index{grille.\+h@{grille.\+h}!copie\+\_\+grille@{copie\+\_\+grille}}
+\index{copie\+\_\+grille@{copie\+\_\+grille}!grille.\+h@{grille.\+h}}
+\subsubsection{\texorpdfstring{copie\+\_\+grille()}{copie\_grille()}}
+{\footnotesize\ttfamily void copie\+\_\+grille (\begin{DoxyParamCaption}\item[{\hyperlink{structgrille}{grille}}]{gs,  }\item[{\hyperlink{structgrille}{grille}}]{gd }\end{DoxyParamCaption})}
+
+recopie une grille dans une autre
+
+
+\begin{DoxyParams}{Parameters}
+{\em gs} & grille recopié \\
+\hline
+{\em gd} & grille affecté \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{grille_8h_adf5501cc0bbad28f5ffc561d92197e4e}\label{grille_8h_adf5501cc0bbad28f5ffc561d92197e4e}} 
+\index{grille.\+h@{grille.\+h}!init\+\_\+grille\+\_\+from\+\_\+file@{init\+\_\+grille\+\_\+from\+\_\+file}}
+\index{init\+\_\+grille\+\_\+from\+\_\+file@{init\+\_\+grille\+\_\+from\+\_\+file}!grille.\+h@{grille.\+h}}
+\subsubsection{\texorpdfstring{init\+\_\+grille\+\_\+from\+\_\+file()}{init\_grille\_from\_file()}}
+{\footnotesize\ttfamily void init\+\_\+grille\+\_\+from\+\_\+file (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename,  }\item[{\hyperlink{structgrille}{grille} $\ast$}]{g }\end{DoxyParamCaption})}
+
+initialise une grille a partir d\textquotesingle{}un fichier
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & nom du fichier a initaliser \\
+\hline
+{\em g} & variable ou on place cette nouvelle grille \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{grille_8h_a7074b2b15576e9d2b3cd15c3a1dc7012}\label{grille_8h_a7074b2b15576e9d2b3cd15c3a1dc7012}} 
+\index{grille.\+h@{grille.\+h}!libere\+\_\+grille@{libere\+\_\+grille}}
+\index{libere\+\_\+grille@{libere\+\_\+grille}!grille.\+h@{grille.\+h}}
+\subsubsection{\texorpdfstring{libere\+\_\+grille()}{libere\_grille()}}
+{\footnotesize\ttfamily void libere\+\_\+grille (\begin{DoxyParamCaption}\item[{\hyperlink{structgrille}{grille} $\ast$}]{g }\end{DoxyParamCaption})}
+
+libere une grille
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & grille a liberer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}

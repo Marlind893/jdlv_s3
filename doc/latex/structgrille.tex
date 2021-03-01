@@ -1,0 +1,271 @@
+\hypertarget{structgrille}{}\section{grille Struct Reference}
+\label{structgrille}\index{grille@{grille}}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structgrille_a0b4da1e205825df205b0c004d105d62a}\label{structgrille_a0b4da1e205825df205b0c004d105d62a}} 
+int {\bfseries nbl}
+\item 
+\mbox{\Hypertarget{structgrille_a48d6706d41bee6fff9200d872b8b0cd0}\label{structgrille_a48d6706d41bee6fff9200d872b8b0cd0}} 
+int {\bfseries nbc}
+\item 
+\mbox{\Hypertarget{structgrille_a428cf0c0297ce04e0206ba0067ac3b42}\label{structgrille_a428cf0c0297ce04e0206ba0067ac3b42}} 
+int $\ast$$\ast$ {\bfseries cellules}
+\end{DoxyCompactItemize}
+\subsection*{Related Functions}
+(Note that these are not member functions.) \begin{DoxyCompactItemize}
+\item 
+void \hyperlink{structgrille_ae621f51c60aa4fafaa0c9f6c9b5a4036}{alloue\+\_\+grille} (int l, int c, \hyperlink{structgrille}{grille} $\ast$g)
+\item 
+void \hyperlink{structgrille_a7074b2b15576e9d2b3cd15c3a1dc7012}{libere\+\_\+grille} (\hyperlink{structgrille}{grille} $\ast$g)
+\item 
+void \hyperlink{structgrille_adf5501cc0bbad28f5ffc561d92197e4e}{init\+\_\+grille\+\_\+from\+\_\+file} (char $\ast$filename, \hyperlink{structgrille}{grille} $\ast$g)
+\item 
+static void \hyperlink{structgrille_a32d986d81f64f5bf9a58653accac0310}{set\+\_\+vivante} (int i, int j, \hyperlink{structgrille}{grille} g)
+\item 
+static void \hyperlink{structgrille_a10e7b11f2de74ccf95ad1fcb3671a163}{set\+\_\+morte} (int i, int j, \hyperlink{structgrille}{grille} g)
+\item 
+static int \hyperlink{structgrille_aac3db82b0f857dc49ccd51628cbc231b}{est\+\_\+vivante} (int i, int j, \hyperlink{structgrille}{grille} g)
+\item 
+void \hyperlink{structgrille_a63b3ae16c86b568f6aa8f9ce84128b1e}{copie\+\_\+grille} (\hyperlink{structgrille}{grille} gs, \hyperlink{structgrille}{grille} gd)
+\item 
+void \hyperlink{structgrille_a90cb8ec05374b46d9995705ed4954f34}{affiche\+\_\+grille} (\hyperlink{structgrille}{grille} g)
+\item 
+void \hyperlink{structgrille_ab36a6f8957cd3e682119007836ce6ad5}{efface\+\_\+grille} (\hyperlink{structgrille}{grille} g)
+\item 
+int \hyperlink{structgrille_ae2f614cbe876c55ee26d1d0059f92a3c}{debut\+\_\+jeu} (\hyperlink{structgrille}{grille} $\ast$g, \hyperlink{structgrille}{grille} $\ast$gc)
+\item 
+int \hyperlink{structgrille_adf9adf6ee75bcfbe164ac465ca5e4f82}{compte\+\_\+voisins\+\_\+vivants} (int i, int j, \hyperlink{structgrille}{grille} g)
+\item 
+void \hyperlink{structgrille_a36a600ac4a0aa461ca212614a9ba4260}{evolue} (\hyperlink{structgrille}{grille} $\ast$g, \hyperlink{structgrille}{grille} $\ast$gc, int cy)
+\end{DoxyCompactItemize}
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{structgrille_a90cb8ec05374b46d9995705ed4954f34}\label{structgrille_a90cb8ec05374b46d9995705ed4954f34}} 
+\index{grille@{grille}!affiche\+\_\+grille@{affiche\+\_\+grille}}
+\index{affiche\+\_\+grille@{affiche\+\_\+grille}!grille@{grille}}
+\subsubsection{\texorpdfstring{affiche\+\_\+grille()}{affiche\_grille()}}
+{\footnotesize\ttfamily void affiche\+\_\+grille (\begin{DoxyParamCaption}\item[{\hyperlink{structgrille}{grille}}]{g }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [related]}}
+
+affiche une grille
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & grille g \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structgrille_ae621f51c60aa4fafaa0c9f6c9b5a4036}\label{structgrille_ae621f51c60aa4fafaa0c9f6c9b5a4036}} 
+\index{grille@{grille}!alloue\+\_\+grille@{alloue\+\_\+grille}}
+\index{alloue\+\_\+grille@{alloue\+\_\+grille}!grille@{grille}}
+\subsubsection{\texorpdfstring{alloue\+\_\+grille()}{alloue\_grille()}}
+{\footnotesize\ttfamily void alloue\+\_\+grille (\begin{DoxyParamCaption}\item[{int}]{l,  }\item[{int}]{c,  }\item[{\hyperlink{structgrille}{grille} $\ast$}]{g }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [related]}}
+
+alloue une grille
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & nombre de lignes \\
+\hline
+{\em c} & nombre de colonnes \\
+\hline
+{\em g} & grille a allouer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structgrille_adf9adf6ee75bcfbe164ac465ca5e4f82}\label{structgrille_adf9adf6ee75bcfbe164ac465ca5e4f82}} 
+\index{grille@{grille}!compte\+\_\+voisins\+\_\+vivants@{compte\+\_\+voisins\+\_\+vivants}}
+\index{compte\+\_\+voisins\+\_\+vivants@{compte\+\_\+voisins\+\_\+vivants}!grille@{grille}}
+\subsubsection{\texorpdfstring{compte\+\_\+voisins\+\_\+vivants()}{compte\_voisins\_vivants()}}
+{\footnotesize\ttfamily int compte\+\_\+voisins\+\_\+vivants (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j,  }\item[{\hyperlink{structgrille}{grille}}]{g }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [related]}}
+
+compte le nombre de voisins
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & nombre de lignes \\
+\hline
+{\em j} & nombre de colonnes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily int} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structgrille_a63b3ae16c86b568f6aa8f9ce84128b1e}\label{structgrille_a63b3ae16c86b568f6aa8f9ce84128b1e}} 
+\index{grille@{grille}!copie\+\_\+grille@{copie\+\_\+grille}}
+\index{copie\+\_\+grille@{copie\+\_\+grille}!grille@{grille}}
+\subsubsection{\texorpdfstring{copie\+\_\+grille()}{copie\_grille()}}
+{\footnotesize\ttfamily void copie\+\_\+grille (\begin{DoxyParamCaption}\item[{\hyperlink{structgrille}{grille}}]{gs,  }\item[{\hyperlink{structgrille}{grille}}]{gd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [related]}}
+
+recopie une grille dans une autre
+
+
+\begin{DoxyParams}{Parameters}
+{\em gs} & grille recopié \\
+\hline
+{\em gd} & grille affecté \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structgrille_ae2f614cbe876c55ee26d1d0059f92a3c}\label{structgrille_ae2f614cbe876c55ee26d1d0059f92a3c}} 
+\index{grille@{grille}!debut\+\_\+jeu@{debut\+\_\+jeu}}
+\index{debut\+\_\+jeu@{debut\+\_\+jeu}!grille@{grille}}
+\subsubsection{\texorpdfstring{debut\+\_\+jeu()}{debut\_jeu()}}
+{\footnotesize\ttfamily int debut\+\_\+jeu (\begin{DoxyParamCaption}\item[{\hyperlink{structgrille}{grille} $\ast$}]{g,  }\item[{\hyperlink{structgrille}{grille} $\ast$}]{gc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [related]}}
+
+fait evoluer la grille
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & grille g \\
+\hline
+{\em gc} & grille gc \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily int} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structgrille_ab36a6f8957cd3e682119007836ce6ad5}\label{structgrille_ab36a6f8957cd3e682119007836ce6ad5}} 
+\index{grille@{grille}!efface\+\_\+grille@{efface\+\_\+grille}}
+\index{efface\+\_\+grille@{efface\+\_\+grille}!grille@{grille}}
+\subsubsection{\texorpdfstring{efface\+\_\+grille()}{efface\_grille()}}
+{\footnotesize\ttfamily void efface\+\_\+grille (\begin{DoxyParamCaption}\item[{\hyperlink{structgrille}{grille}}]{g }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [related]}}
+
+efface une grille
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & grille g \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structgrille_aac3db82b0f857dc49ccd51628cbc231b}\label{structgrille_aac3db82b0f857dc49ccd51628cbc231b}} 
+\index{grille@{grille}!est\+\_\+vivante@{est\+\_\+vivante}}
+\index{est\+\_\+vivante@{est\+\_\+vivante}!grille@{grille}}
+\subsubsection{\texorpdfstring{est\+\_\+vivante()}{est\_vivante()}}
+{\footnotesize\ttfamily static int est\+\_\+vivante (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j,  }\item[{\hyperlink{structgrille}{grille}}]{g }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [related]}}
+
+teste si une cellule est vivante
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & numero ligne \\
+\hline
+{\em j} & numero colonne \\
+\hline
+{\em g} & grille affecté \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily static} inline void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structgrille_a36a600ac4a0aa461ca212614a9ba4260}\label{structgrille_a36a600ac4a0aa461ca212614a9ba4260}} 
+\index{grille@{grille}!evolue@{evolue}}
+\index{evolue@{evolue}!grille@{grille}}
+\subsubsection{\texorpdfstring{evolue()}{evolue()}}
+{\footnotesize\ttfamily void evolue (\begin{DoxyParamCaption}\item[{\hyperlink{structgrille}{grille} $\ast$}]{g,  }\item[{\hyperlink{structgrille}{grille} $\ast$}]{gc,  }\item[{int}]{cy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [related]}}
+
+fait evoluer la grille
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & grille g \\
+\hline
+{\em gc} & grille gc \\
+\hline
+{\em cy} & toggle cyclique \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structgrille_adf5501cc0bbad28f5ffc561d92197e4e}\label{structgrille_adf5501cc0bbad28f5ffc561d92197e4e}} 
+\index{grille@{grille}!init\+\_\+grille\+\_\+from\+\_\+file@{init\+\_\+grille\+\_\+from\+\_\+file}}
+\index{init\+\_\+grille\+\_\+from\+\_\+file@{init\+\_\+grille\+\_\+from\+\_\+file}!grille@{grille}}
+\subsubsection{\texorpdfstring{init\+\_\+grille\+\_\+from\+\_\+file()}{init\_grille\_from\_file()}}
+{\footnotesize\ttfamily void init\+\_\+grille\+\_\+from\+\_\+file (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename,  }\item[{\hyperlink{structgrille}{grille} $\ast$}]{g }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [related]}}
+
+initialise une grille a partir d\textquotesingle{}un fichier
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & nom du fichier a initaliser \\
+\hline
+{\em g} & variable ou on place cette nouvelle grille \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structgrille_a7074b2b15576e9d2b3cd15c3a1dc7012}\label{structgrille_a7074b2b15576e9d2b3cd15c3a1dc7012}} 
+\index{grille@{grille}!libere\+\_\+grille@{libere\+\_\+grille}}
+\index{libere\+\_\+grille@{libere\+\_\+grille}!grille@{grille}}
+\subsubsection{\texorpdfstring{libere\+\_\+grille()}{libere\_grille()}}
+{\footnotesize\ttfamily void libere\+\_\+grille (\begin{DoxyParamCaption}\item[{\hyperlink{structgrille}{grille} $\ast$}]{g }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [related]}}
+
+libere une grille
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & grille a liberer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structgrille_a10e7b11f2de74ccf95ad1fcb3671a163}\label{structgrille_a10e7b11f2de74ccf95ad1fcb3671a163}} 
+\index{grille@{grille}!set\+\_\+morte@{set\+\_\+morte}}
+\index{set\+\_\+morte@{set\+\_\+morte}!grille@{grille}}
+\subsubsection{\texorpdfstring{set\+\_\+morte()}{set\_morte()}}
+{\footnotesize\ttfamily static void set\+\_\+morte (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j,  }\item[{\hyperlink{structgrille}{grille}}]{g }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [related]}}
+
+teste si une cellule est morte
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & numero ligne \\
+\hline
+{\em j} & numero colonne \\
+\hline
+{\em g} & grille affecté \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily static} inline void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structgrille_a32d986d81f64f5bf9a58653accac0310}\label{structgrille_a32d986d81f64f5bf9a58653accac0310}} 
+\index{grille@{grille}!set\+\_\+vivante@{set\+\_\+vivante}}
+\index{set\+\_\+vivante@{set\+\_\+vivante}!grille@{grille}}
+\subsubsection{\texorpdfstring{set\+\_\+vivante()}{set\_vivante()}}
+{\footnotesize\ttfamily static void set\+\_\+vivante (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j,  }\item[{\hyperlink{structgrille}{grille}}]{g }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [related]}}
+
+teste une cellule vivante
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & numero ligne \\
+\hline
+{\em j} & numero colonne \\
+\hline
+{\em g} & grille affecté \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily static} inline void 
+\end{DoxyReturn}
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{grille_8h}{grille.\+h}\item 
+include/\hyperlink{io_8h}{io.\+h}\item 
+include/\hyperlink{jeu_8h}{jeu.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,73 @@
+\hypertarget{jeu_8h}{}\section{include/jeu.h File Reference}
+\label{jeu_8h}\index{include/jeu.\+h@{include/jeu.\+h}}
+{\ttfamily \#include \char`\"{}grille.\+h\char`\"{}}\newline
+Include dependency graph for jeu.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{jeu_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=151pt]{jeu_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{jeu_8h_adf9adf6ee75bcfbe164ac465ca5e4f82}{compte\+\_\+voisins\+\_\+vivants} (int i, int j, \hyperlink{structgrille}{grille} g)
+\item 
+void \hyperlink{jeu_8h_a36a600ac4a0aa461ca212614a9ba4260}{evolue} (\hyperlink{structgrille}{grille} $\ast$g, \hyperlink{structgrille}{grille} $\ast$gc, int cy)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+header pour le jeu \begin{DoxyAuthor}{Author}
+Marlind Tahiri 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{jeu_8h_adf9adf6ee75bcfbe164ac465ca5e4f82}\label{jeu_8h_adf9adf6ee75bcfbe164ac465ca5e4f82}} 
+\index{jeu.\+h@{jeu.\+h}!compte\+\_\+voisins\+\_\+vivants@{compte\+\_\+voisins\+\_\+vivants}}
+\index{compte\+\_\+voisins\+\_\+vivants@{compte\+\_\+voisins\+\_\+vivants}!jeu.\+h@{jeu.\+h}}
+\subsubsection{\texorpdfstring{compte\+\_\+voisins\+\_\+vivants()}{compte\_voisins\_vivants()}}
+{\footnotesize\ttfamily int compte\+\_\+voisins\+\_\+vivants (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j,  }\item[{\hyperlink{structgrille}{grille}}]{g }\end{DoxyParamCaption})}
+
+compte le nombre de voisins
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & nombre de lignes \\
+\hline
+{\em j} & nombre de colonnes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily int} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{jeu_8h_a36a600ac4a0aa461ca212614a9ba4260}\label{jeu_8h_a36a600ac4a0aa461ca212614a9ba4260}} 
+\index{jeu.\+h@{jeu.\+h}!evolue@{evolue}}
+\index{evolue@{evolue}!jeu.\+h@{jeu.\+h}}
+\subsubsection{\texorpdfstring{evolue()}{evolue()}}
+{\footnotesize\ttfamily void evolue (\begin{DoxyParamCaption}\item[{\hyperlink{structgrille}{grille} $\ast$}]{g,  }\item[{\hyperlink{structgrille}{grille} $\ast$}]{gc,  }\item[{int}]{cy }\end{DoxyParamCaption})}
+
+fait evoluer la grille
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & grille g \\
+\hline
+{\em gc} & grille gc \\
+\hline
+{\em cy} & toggle cyclique \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
