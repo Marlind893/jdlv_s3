@@ -79,6 +79,17 @@ static inline void set_vivante(int i, int j, grille g){
 static inline void set_non_viable(int i, int j, grille g){g.cellules[i][j] = -1;}
 
 
+// teste si la cellule (i,j) de la grille g est non viable
+/**
+ * teste une cellule vivante
+ * \relatesalso grille
+ * \param i numero ligne
+ * \param j numero colonne
+ * \param g grille affecté
+ * \returns \c static inline void
+ */
+static inline int est_non_viable(int i, int j, grille g){return g.cellules[i][j] == -1;}
+
 
 // rend morte la cellule (i,j) de la grille g
 /**

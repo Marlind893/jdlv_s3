@@ -49,6 +49,18 @@ static inline int modulo1(int i, int m) {
 void vieillissement(grille *g, grille *gc);
 
 // compte le nombre de voisins vivants de la cellule (i,j)
+// les bords sont non cycliques.
+/**
+ * compte le nombre de voisins
+ * \relatesalso grille
+ * \param i nombre de lignes
+ * \param j nombre de colonnes
+ * \returns \c int
+ */
+int compte_voisins_vivants_non_cycl (int i, int j, grille g);
+
+
+// compte le nombre de voisins vivants de la cellule (i,j)
 // les bords sont cycliques.
 /**
  * compte le nombre de voisins
@@ -57,7 +69,8 @@ void vieillissement(grille *g, grille *gc);
  * \param j nombre de colonnes
  * \returns \c int
  */
-int compte_voisins_vivants (int i, int j, grille g);
+int compte_voisins_vivants_cycl (int i, int j, grille g);
+
 
 // fait évoluer la grille g d'un pas de temps
 /**
@@ -65,10 +78,10 @@ int compte_voisins_vivants (int i, int j, grille g);
  * \relatesalso grille
  * \param g grille g
  * \param gc grille gc
- * \param cy toggle cyclique
+ * \param compte_voisins_vivants toggle cyclique (pointeur foncion)
  * \param vj toggle vieillisement
  * \returns \c void
  */
-void evolue (grille *g, grille *gc, int cy, int vj);
+void evolue (grille *g, grille *gc, int (*compte_voisins_vivants) (int, int, grille), int vj);
 
 #endif

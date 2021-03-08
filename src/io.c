@@ -46,16 +46,18 @@ void efface_grille (grille g){
 
 void debut_jeu(grille *g, grille *gc){
 	char c = getchar();
-	int cycl=0;
+	int cycl=1;
 	int vieil=0;
 	int temps = 1;
 	char next[N];
+	int (*compte_voisins_vivants) (int, int, grille) = compte_voisins_vivants_cyclique;
+
 	while (c != 'q') // touche 'q' pour quitter
 	{ 
 		switch (c) {
 			case '\n' : 
 			{ // touche "entree" pour évoluer
-				evolue(g, gc, cycl, vieil);
+				evolue(g, gc, compte_voisins_vivants, vieil);
 				efface_grille(*g);
 				printf("Temps d'evolution: %d  ", temps);
 				affiche_grille(*g, vieil);
@@ -78,7 +80,14 @@ void debut_jeu(grille *g, grille *gc){
 			}
 			case 'c':
 			{ //touche 'c' pour cuclique ou non cyclique
-				cycl++;
+				//cycl++;
+				if (cycl) {
+					cycl = 0;
+					compte_voisins_vivants = &(compte_voisins_vivants_non_cyclique);
+				} else {
+					cycl = 1;
+					compte_voisins_vivants = &(compte_voisins_vivants_cyclique);
+				}
 				printf("\e[H\e[2J");
 				break;
 			}
