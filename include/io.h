@@ -4,8 +4,8 @@
  * \author Marlind Tahiri
  */
 
-#ifndef __IO_H
-#define __IO_H
+#ifndef __IO_H__
+#define __IO_H__
 
 #include <stdio.h>
 #include "grille.h"

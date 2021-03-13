@@ -4,8 +4,8 @@
  * \author Marlind Tahiri
  */
 
-#ifndef __GRILLE_H
-#define __GRILLE_H
+#ifndef __GRILLE_H__
+#define __GRILLE_H__
 
 #include <stdlib.h>
 #include <stdio.h>

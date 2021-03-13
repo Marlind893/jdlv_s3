@@ -44,13 +44,15 @@ void efface_grille (grille g){
 	printf("\n\e[%dA",g.nbl*2 + 5); 
 }
 
+
 void debut_jeu(grille *g, grille *gc){
 	char c = getchar();
 	int cycl=1;
 	int vieil=0;
 	int temps = 1;
 	char next[N];
-	int (*compte_voisins_vivants) (int, int, grille) = compte_voisins_vivants_cyclique;
+	//pointeur fonction cycl ou non
+	int (*compte_voisins_vivants) (int, int, grille) = compte_voisins_vivants_cycl;
 
 	while (c != 'q') // touche 'q' pour quitter
 	{ 
@@ -70,7 +72,7 @@ void debut_jeu(grille *g, grille *gc){
 				
 				libere_grille(g);
 				libere_grille(gc);
-				printf("Entrez la nouvelle grillle: \n");
+				printf("Entrez la nouvelle grillle:        (format: grilles/grilleX.txt).\n");
 				scanf("%s", next);
 				init_grille_from_file(next, g);
 				alloue_grille(g->nbl, g->nbc, gc);
@@ -83,10 +85,10 @@ void debut_jeu(grille *g, grille *gc){
 				//cycl++;
 				if (cycl) {
 					cycl = 0;
-					compte_voisins_vivants = &(compte_voisins_vivants_non_cyclique);
+					compte_voisins_vivants = &(compte_voisins_vivants_non_cycl);
 				} else {
 					cycl = 1;
-					compte_voisins_vivants = &(compte_voisins_vivants_cyclique);
+					compte_voisins_vivants = &(compte_voisins_vivants_cycl);
 				}
 				printf("\e[H\e[2J");
 				break;

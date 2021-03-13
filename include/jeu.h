@@ -4,8 +4,8 @@
  * \author Marlind Tahiri
  */
 
-#ifndef __JEU_H
-#define __JEU_H
+#ifndef __JEU_H__
+#define __JEU_H__
 
 #include "grille.h"
 

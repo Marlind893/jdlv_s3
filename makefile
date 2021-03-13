@@ -3,9 +3,12 @@ IFLAGS = -I include
 CPATH = src/
 INC = include/
 OPATH = obj/
+BPATH = bin/
 DOC = doc/
 CPPFLAGS += -Iinclude -I/usr/include/cairo
 LDFLAGS += -lcairo -lm -lX11
+
+CFLAGS = -Wall -c -g
 
 
 vpath %.h $(INC)
@@ -13,21 +16,16 @@ vpath %.c $(CPATH)
 vpath %.o $(OPATH)
 
 jdlv: libjeu.a
-	$(CC) -o bin/jdlv libjeu.a
+	@mkdir -p $(BPATH)
+	$(CC) -o $(BPATH)jdlv libjeu.a
 libjeu.a: main.o grille.o jeu.o io.o
 	ar -crv libjeu.a $(OPATH)main.o $(OPATH)grille.o $(OPATH)jeu.o $(OPATH)io.o
-main.o: main.c grille.h jeu.h io.h 
-	$(CC) -c -g $(CPATH)main.c $(IFLAGS)
-	mv main.o $(OPATH)
-grille.o: grille.c grille.h
-	$(CC) -c -g $(CPATH)grille.c $(IFLAGS)
-	mv grille.o $(OPATH)
-jeu.o: jeu.c jeu.h
-	$(CC) -c -g $(CPATH)jeu.c $(IFLAGS)
-	mv jeu.o $(OPATH)
-io.o: io.c io.h
-	$(CC) -c -g $(CPATH)io.c $(IFLAGS)
-	mv io.o $(OPATH)
+
+
+%.o: %.c
+	@mkdir -p $(OPATH)
+	$(CC) $(CFLAGS) -o $(OPATH)$@ $^ $(IFLAGS)
+
 
 clean: 
 	rm obj/* bin/* *.a
