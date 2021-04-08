@@ -1,0 +1,111 @@
+\hypertarget{io_8h}{}\doxysection{include/io.h File Reference}
+\label{io_8h}\index{include/io.h@{include/io.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}grille.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}jeu.\+h\char`\"{}}\newline
+Include dependency graph for io.\+h\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{io_8h_a634cf584c380ce221d5d4199f3e813bd}{affiche\+\_\+trait}} (int c)
+\item 
+void \mbox{\hyperlink{io_8h_a3f3ff78e56fcf21a932ff73b70635554}{affiche\+\_\+ligne}} (int c, int $\ast$ligne)
+\item 
+void \mbox{\hyperlink{io_8h_a40f511f71c752cf84d0ddd91fae3aaff}{affiche\+\_\+grille}} (\mbox{\hyperlink{structgrille}{grille}} g, int v)
+\item 
+void \mbox{\hyperlink{io_8h_ab36a6f8957cd3e682119007836ce6ad5}{efface\+\_\+grille}} (\mbox{\hyperlink{structgrille}{grille}} g)
+\item 
+void \mbox{\hyperlink{io_8h_a88493b3c55828670e47150a95ed7db5b}{debut\+\_\+jeu}} (\mbox{\hyperlink{structgrille}{grille}} $\ast$g, \mbox{\hyperlink{structgrille}{grille}} $\ast$gc)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+header pour le io \begin{DoxyAuthor}{Author}
+Marlind Tahiri 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{io_8h_a40f511f71c752cf84d0ddd91fae3aaff}\label{io_8h_a40f511f71c752cf84d0ddd91fae3aaff}} 
+\index{io.h@{io.h}!affiche\_grille@{affiche\_grille}}
+\index{affiche\_grille@{affiche\_grille}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{affiche\_grille()}{affiche\_grille()}}
+{\footnotesize\ttfamily void affiche\+\_\+grille (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgrille}{grille}}}]{g,  }\item[{int}]{v }\end{DoxyParamCaption})}
+
+affiche une grille
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & grille g \\
+\hline
+{\em v} & toggle vieillisement \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{io_8h_a3f3ff78e56fcf21a932ff73b70635554}\label{io_8h_a3f3ff78e56fcf21a932ff73b70635554}} 
+\index{io.h@{io.h}!affiche\_ligne@{affiche\_ligne}}
+\index{affiche\_ligne@{affiche\_ligne}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{affiche\_ligne()}{affiche\_ligne()}}
+{\footnotesize\ttfamily void affiche\+\_\+ligne (\begin{DoxyParamCaption}\item[{int}]{c,  }\item[{int $\ast$}]{ligne }\end{DoxyParamCaption})}
+
+affiche une ligne verticale 
+\begin{DoxyParams}{Parameters}
+{\em c} & numero de colonnes \\
+\hline
+{\em ligne} & tableau ligne \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{io_8h_a634cf584c380ce221d5d4199f3e813bd}\label{io_8h_a634cf584c380ce221d5d4199f3e813bd}} 
+\index{io.h@{io.h}!affiche\_trait@{affiche\_trait}}
+\index{affiche\_trait@{affiche\_trait}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{affiche\_trait()}{affiche\_trait()}}
+{\footnotesize\ttfamily void affiche\+\_\+trait (\begin{DoxyParamCaption}\item[{int}]{c }\end{DoxyParamCaption})}
+
+affiche un trait 
+\begin{DoxyParams}{Parameters}
+{\em c} & numero de colonnes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{io_8h_a88493b3c55828670e47150a95ed7db5b}\label{io_8h_a88493b3c55828670e47150a95ed7db5b}} 
+\index{io.h@{io.h}!debut\_jeu@{debut\_jeu}}
+\index{debut\_jeu@{debut\_jeu}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{debut\_jeu()}{debut\_jeu()}}
+{\footnotesize\ttfamily void debut\+\_\+jeu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgrille}{grille}} $\ast$}]{g,  }\item[{\mbox{\hyperlink{structgrille}{grille}} $\ast$}]{gc }\end{DoxyParamCaption})}
+
+fait evoluer la grille
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & grille g \\
+\hline
+{\em gc} & grille gc \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{io_8h_ab36a6f8957cd3e682119007836ce6ad5}\label{io_8h_ab36a6f8957cd3e682119007836ce6ad5}} 
+\index{io.h@{io.h}!efface\_grille@{efface\_grille}}
+\index{efface\_grille@{efface\_grille}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{efface\_grille()}{efface\_grille()}}
+{\footnotesize\ttfamily void efface\+\_\+grille (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgrille}{grille}}}]{g }\end{DoxyParamCaption})}
+
+efface une grille
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & grille g \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}

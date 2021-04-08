@@ -32,6 +32,7 @@ libjeu.a: main.o grille.o jeu.o io.o
 
 clean: 
 	rm obj/* bin/* *.a
+	rmdir doc/html doc/latex
 
 
 dist: 
@@ -39,4 +40,5 @@ dist:
 
 doc:
 	@mkdir -p $(DOC)
+	doxygen
 
