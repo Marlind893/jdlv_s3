@@ -1,4 +1,8 @@
 #include "grille.h"
+<<<<<<< HEAD
+#include "jeu.h"
+=======
+>>>>>>> 9e6146a607b89ae9e65f9a069ab9669897a6246b
 
 void init_grille_from_file (char * filename, grille* g){
 	FILE * pfile = NULL;
@@ -63,6 +67,32 @@ void copie_grille (grille gs, grille gd){
 }
 
 
+<<<<<<< HEAD
+
+int Equal_grilles(grille *ga, grille *gb) {
+	int i, j;
+	for (i = 0; i < ga->nbl; i++) {
+		for (j = 0; j < ga->nbc; j++) {
+			if (ga->cellules[i][j] != gb->cellules[i][j]) {
+				return 0;
+			}
+		}
+	}
+	return 1;
+}
+
+
+int grille_vide(grille *g) {
+	int i, j;
+	for (i = 0; i < g->nbl; i++) {
+		for (j = 0; j < g->nbc; j++) {
+			if (g->cellules[i][j] > 0) {
+				return 0;
+			}
+		}
+	}
+	return 1;
+=======
 int oscillante(grille ga, grille gcop, int col){
 	int t=0;
 	if(ga.cellules[col] != gcop.cellules[col]){
@@ -72,9 +102,53 @@ int oscillante(grille ga, grille gcop, int col){
 	}
 	
 	
+>>>>>>> 9e6146a607b89ae9e65f9a069ab9669897a6246b
 }
 
 
 
 
+<<<<<<< HEAD
+int oscillante(grille* g, int (*compte_voisins_vivants) (int, int, grille), int v){
+	
+	int t = 0;
+	grille orig_copy, next_copy, tmpr;
+	alloue_grille (g->nbl, g->nbc, &orig_copy);
+	copie_grille(*g, orig_copy);
+
+	alloue_grille (g->nbl, g->nbc, &next_copy);
+	copie_grille(*g, next_copy);
+
+	alloue_grille (g->nbl, g->nbc, &tmpr);
+	copie_grille(*g, tmpr);
+
+	int maxEvolutions = 1000; // max 1000 evo
+
+	int maxOSC = 100; // max 100 osc
+	int i = 0;
+	 do {
+		while (t < maxEvolutions) {
+			evolue(&next_copy,&tmpr,compte_voisins_vivants,v);
+			t++;
+			if (grille_vide(&orig_copy)) {
+				return 0;
+			}
+			if (Equal_grilles(&orig_copy, &next_copy)) {
+				return t;
+			}
+		}
+
+		evolue(&orig_copy,&tmpr,compte_voisins_vivants,v);
+		copie_grille(orig_copy, next_copy);
+		t = 0;
+		i++;
+	} while (i < maxOSC);
+
+
+	return 0;
+}
+
+
+=======
+>>>>>>> 9e6146a607b89ae9e65f9a069ab9669897a6246b
 

@@ -127,12 +127,40 @@ void copie_grille (grille gs, grille gd);
 /**
 *verifie si une grille est oscillante
 * \relatesalso grille
+<<<<<<< HEAD
+* \param g grille originale
+* \param compte_voisins_vivants pointeur fonc
+* \param v vieillisement
+* \returns \c int
+*/
+int oscillante(grille* g, int (*compte_voisins_vivants) (int, int, grille), int v);
+
+// check si les grilles sont egales
+/**
+*recopie une grille dans une autre
+* \relatesalso grille
+* \param ga grille a
+* \param gb grille b
+* \returns \c void
+*/
+int Equal_grilles(grille *ga, grille *gb);
+
+//check si une grille est vide
+/**
+*recopie une grille dans une autre
+* \relatesalso grille
+* \param g grille checked
+* \returns \c void
+*/
+int grille_vide(grille *g);
+=======
 * \param ga grille originale
 * \param gcop grille copié
 * \param col colonne a vrifier
 * \returns \c int
 */
 int oscillante(grille ga, grille gcop, int col);
+>>>>>>> 9e6146a607b89ae9e65f9a069ab9669897a6246b
 
 
 

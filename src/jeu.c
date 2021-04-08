@@ -42,7 +42,11 @@ void evolue (grille *g, grille *gc, int (*compte_voisins_vivants) (int, int, gri
 			
 				if (est_vivante(i,j,*g)) 
 				{ // evolution d'une cellule vivante
+<<<<<<< HEAD
+					if ( (v!=2 && v!= 3) || g->cellules[i][j]>=8){
+=======
 					if ( v!=2 && v!= 3 || g->cellules[i][j]>=8){
+>>>>>>> 9e6146a607b89ae9e65f9a069ab9669897a6246b
 						 set_morte(i,j,*g);
 					}else if(vj%2){
 						g->cellules[i][j]++;
