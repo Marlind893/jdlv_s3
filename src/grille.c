@@ -1,8 +1,5 @@
 #include "grille.h"
-<<<<<<< HEAD
 #include "jeu.h"
-=======
->>>>>>> 9e6146a607b89ae9e65f9a069ab9669897a6246b
 
 void init_grille_from_file (char * filename, grille* g){
 	FILE * pfile = NULL;
@@ -67,7 +64,6 @@ void copie_grille (grille gs, grille gd){
 }
 
 
-<<<<<<< HEAD
 
 int Equal_grilles(grille *ga, grille *gb) {
 	int i, j;
@@ -92,23 +88,11 @@ int grille_vide(grille *g) {
 		}
 	}
 	return 1;
-=======
-int oscillante(grille ga, grille gcop, int col){
-	int t=0;
-	if(ga.cellules[col] != gcop.cellules[col]){
-		return t;
-	}else{
-		t++;
-	}
-	
-	
->>>>>>> 9e6146a607b89ae9e65f9a069ab9669897a6246b
 }
 
 
 
 
-<<<<<<< HEAD
 int oscillante(grille* g, int (*compte_voisins_vivants) (int, int, grille), int v){
 	
 	int t = 0;
@@ -149,6 +133,4 @@ int oscillante(grille* g, int (*compte_voisins_vivants) (int, int, grille), int 
 }
 
 
-=======
->>>>>>> 9e6146a607b89ae9e65f9a069ab9669897a6246b
 

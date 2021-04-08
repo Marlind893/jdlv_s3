@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include "grille.h"
 #include "jeu.h"
-<<<<<<< HEAD
+
 #include <string.h>
 #include <cairo.h>
 #include <cairo-xlib.h>
@@ -127,25 +127,6 @@
     void efface_grille (grille g);
 
 
-=======
-
-// affichage d'un trait horizontal
-/**
- * affiche un trait
- * \param c numero de colonnes
- * \returns \c void
- */
-void affiche_trait (int c);
-
-// affichage d'une ligne de la grille
-/**
- * affiche une ligne verticale
- * \param c numero de colonnes
- * \param ligne tableau ligne
- * \returns \c void
- */
-void affiche_ligne (int c, int* ligne);
->>>>>>> 9e6146a607b89ae9e65f9a069ab9669897a6246b
 
 // affichage d'une grille
 /**
@@ -153,28 +134,12 @@ void affiche_ligne (int c, int* ligne);
  * \relatesalso grille
  * \param g grille g
  * \param v toggle vieillisement
-<<<<<<< HEAD
  * \param oscill oscillation
  * \returns \c void
  */
 void affiche_grille (grille g, int v, int oscill);
 
 #endif
-=======
- * \returns \c void
- */
-void affiche_grille (grille g, int v);
-
-// effacement d'une grille
-/**
- * efface une grille 
- * \relatesalso grille
- * \param g grille g
- * \returns \c void
- */
-void efface_grille (grille g);
-
->>>>>>> 9e6146a607b89ae9e65f9a069ab9669897a6246b
 // debute le jeu
 /**
  * fait evoluer la grille 

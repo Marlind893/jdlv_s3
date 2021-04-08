@@ -1,5 +1,4 @@
 #include "io.h"
-<<<<<<< HEAD
 #include <string.h>
 #include <cairo.h>
 #include <cairo-xlib.h>
@@ -276,10 +275,6 @@ void debut_jeu(grille *g, grille *gc) {
 
 
 
-=======
-#define N 25
-
->>>>>>> 9e6146a607b89ae9e65f9a069ab9669897a6246b
 void affiche_trait (int c){
 	int i;
 	for (i=0; i<c; ++i) printf ("|---");
@@ -303,27 +298,18 @@ void affiche_ligne_avec_v (int c, int* ligne){
 	return;
 }
 
-<<<<<<< HEAD
 void affiche_grille (grille g, int vieilliss, int oscill){
-=======
-void affiche_grille (grille g, int v){
->>>>>>> 9e6146a607b89ae9e65f9a069ab9669897a6246b
 	int i, l=g.nbl, c=g.nbc;
 	printf("\n");
 	affiche_trait(c);
 	for (i=0; i<l; ++i) {
-<<<<<<< HEAD
 		if(vieilliss%2){
-=======
-		if(v%2){
->>>>>>> 9e6146a607b89ae9e65f9a069ab9669897a6246b
 			affiche_ligne_avec_v(c, g.cellules[i]);
 		}else{
 			affiche_ligne(c, g.cellules[i]);
 		}
 		affiche_trait(c);
 	}
-<<<<<<< HEAD
 	
 
 	if(oscill == -1){
@@ -340,12 +326,6 @@ void affiche_grille (grille g, int v){
 
 
 
-=======
-	printf("\n"); 
-	return;
-}
-
->>>>>>> 9e6146a607b89ae9e65f9a069ab9669897a6246b
 void efface_grille (grille g){
 	printf("\n\e[%dA",g.nbl*2 + 5); 
 }
@@ -355,15 +335,10 @@ void debut_jeu(grille *g, grille *gc){
 	char c = getchar();
 	int cycl=1;
 	int vieil=0;
-<<<<<<< HEAD
 	int osc = -1;
 	int temps = 1;
 	char next[N];
 	printf("\e[H\e[2J");
-=======
-	int temps = 1;
-	char next[N];
->>>>>>> 9e6146a607b89ae9e65f9a069ab9669897a6246b
 	//pointeur fonction cycl ou non
 	int (*compte_voisins_vivants) (int, int, grille) = compte_voisins_vivants_cycl;
 
@@ -375,11 +350,7 @@ void debut_jeu(grille *g, grille *gc){
 				evolue(g, gc, compte_voisins_vivants, vieil);
 				efface_grille(*g);
 				printf("Temps d'evolution: %d  ", temps);
-<<<<<<< HEAD
 				affiche_grille(*g, vieil, osc);
-=======
-				affiche_grille(*g, vieil);
->>>>>>> 9e6146a607b89ae9e65f9a069ab9669897a6246b
 				temps++;
 				
 				break;
@@ -394,10 +365,7 @@ void debut_jeu(grille *g, grille *gc){
 				init_grille_from_file(next, g);
 				alloue_grille(g->nbl, g->nbc, gc);
 				temps = 0;
-<<<<<<< HEAD
 				osc = -1;
-=======
->>>>>>> 9e6146a607b89ae9e65f9a069ab9669897a6246b
 				printf("\e[H\e[2J");
 				break;
 			}
@@ -422,21 +390,9 @@ void debut_jeu(grille *g, grille *gc){
 			}
 			case 'o':
 			{ //touche 'o' pour oscillence
-<<<<<<< HEAD
 
 				osc = oscillante(g, compte_voisins_vivants, vieil);
 				
-=======
-				grille gcopie;
-				alloue_grille(g->nbl, g->nbc, &gcopie);
-				copie_grille(*g, gcopie);
-				int colo;
-				printf("Entrez la colonne: \n");
-				scanf("%d", &colo);
-				int osc = oscillante(*g, gcopie, colo);
-				libere_grille(&gcopie);
-				printf("Colonne %d est oscillante pour une periode de %d ", colo, osc);
->>>>>>> 9e6146a607b89ae9e65f9a069ab9669897a6246b
 				printf("\e[H\e[2J");
 				break;
 			}
@@ -452,8 +408,4 @@ void debut_jeu(grille *g, grille *gc){
 }
 
 
-<<<<<<< HEAD
 #endif
-=======
-
->>>>>>> 9e6146a607b89ae9e65f9a069ab9669897a6246b

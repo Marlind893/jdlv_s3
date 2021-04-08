@@ -127,7 +127,6 @@ void copie_grille (grille gs, grille gd);
 /**
 *verifie si une grille est oscillante
 * \relatesalso grille
-<<<<<<< HEAD
 * \param g grille originale
 * \param compte_voisins_vivants pointeur fonc
 * \param v vieillisement
@@ -153,14 +152,6 @@ int Equal_grilles(grille *ga, grille *gb);
 * \returns \c void
 */
 int grille_vide(grille *g);
-=======
-* \param ga grille originale
-* \param gcop grille copié
-* \param col colonne a vrifier
-* \returns \c int
-*/
-int oscillante(grille ga, grille gcop, int col);
->>>>>>> 9e6146a607b89ae9e65f9a069ab9669897a6246b
 
 
 
