@@ -145,12 +145,8 @@ void affiche_grille (grille g, int tempsEvo, int vieillissement, int tempsOsc){
 	cairo_t *cr;
 	cr = cairo_create(surf);
 
-	cairo_set_source_rgb(cr, 1, 1, 1);
 
-	cairo_select_font_face(cr, "Arial",
-		CAIRO_FONT_SLANT_NORMAL,
-		CAIRO_FONT_WEIGHT_BOLD);
-
+	cairo_select_font_face(cr, "Arial", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_BOLD);
 	cairo_set_source_rgb(cr, 1, 1, 1);
 	cairo_set_font_size(cr, 18);
 
@@ -213,8 +209,12 @@ void debut_jeu(grille *g, grille *gc) {
 				libere_grille(g);
 				libere_grille(gc);
 
+				cairo_select_font_face(cr, "Arial", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_BOLD);
+				cairo_set_source_rgb(cr, 1, 1, 1);
+				cairo_set_font_size(cr, 18);
+
 				char inputN[255];
-				sprintf(inputN, "Entrez la nouvelle grillle:        (format: int X).\n");
+				sprintf(inputN, "Entrez le numero de la grillle:        ( Numero de 1 à 8, NE PAS APPUIER SUR Maj ). \n");
 				cairo_move_to(cr, 20, 490);
 				cairo_show_text(cr, inputN);
 				

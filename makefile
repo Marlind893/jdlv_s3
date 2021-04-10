@@ -31,12 +31,12 @@ libjeu.a: main.o grille.o jeu.o io.o
 
 
 clean: 
-	rm *.a
+	-rm *.a
 	rm -r doc/ obj/ bin/ 
 	
 
 dist: 
-	tar -cJf distr.tar.xz src/ include/ Doxyfile makefile grilles/
+	tar -cJf TahiriMarlind-GoL-5.0.tar.xz src/ include/ Doxyfile makefile grilles/
 
 
 docs:
