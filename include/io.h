@@ -127,16 +127,16 @@
 
 
 
-// affichage d'une grille
-/**
- * affiche une grille
- * \relatesalso grille
- * \param g grille g
- * \param v toggle vieillisement
- * \param oscill oscillation
- * \returns \c void
- */
-void affiche_grille (grille g, int v, int oscill);
+    // affichage d'une grille
+    /**
+     * affiche une grille
+     * \relatesalso grille
+     * \param g grille g
+     * \param v toggle vieillisement
+     * \param oscill oscillation
+     * \returns \c void
+     */
+    void affiche_grille (grille g, int v, int oscill);
 
 #endif
 // debute le jeu
