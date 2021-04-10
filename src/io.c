@@ -14,7 +14,7 @@
 #define MARGE_HAUTE_GRILLE 60
 #define LARGEUR_GRILLE 450
 #define HAUTEUR_GRILLE 400
-#define CAIRO_LINE_WIDTH 2
+
 
 extern cairo_surface_t *surf;
 
@@ -30,6 +30,7 @@ cairo_surface_t *cairo_create_x11_surf(int x, int y) {
 		fprintf(stderr, "ERROR: Could not open display\n");
         exit(1);
 	}
+
     screen = DefaultScreen(dpy);
 	rootwin = RootWindow(dpy, screen);
 
@@ -61,13 +62,13 @@ void affiche_ligne (int c, int* ligne, int vieillissement, int hauteur, float ta
 	char ageBuffer[255];
 	float taille_Col = (float) LARGEUR_GRILLE / (float) c;
 
-	cairo_t *cr, *crcells;
+	cairo_t *cr, *cells;
 	cr = cairo_create(surf);
-	crcells = cairo_create(surf);
+	cells = cairo_create(surf);
 	
 	cairo_set_source_rgb(cr, 1, 1, 1);
-	cairo_set_source_rgb(crcells, 0.5, 0.5, 0.5);
-	cairo_set_line_width(cr, CAIRO_LINE_WIDTH);
+	cairo_set_source_rgb(cells, 0.5, 0.5, 0.5);
+	cairo_set_line_width(cr, 2);
 	
 	cairo_move_to(cr, MARGE_GAUCHE_GRILLE, MARGE_HAUTE_GRILLE + (hauteur * taille_Lgn));
 
@@ -89,9 +90,9 @@ void affiche_ligne (int c, int* ligne, int vieillissement, int hauteur, float ta
 		} else {
 			cairo_line_to(cr, MARGE_GAUCHE_GRILLE + i * taille_Col, MARGE_HAUTE_GRILLE + (hauteur * taille_Lgn) + taille_Lgn);
 			cairo_move_to(cr, MARGE_GAUCHE_GRILLE + ((i-1) * taille_Col) + 2, MARGE_HAUTE_GRILLE + (hauteur * taille_Lgn) + 2);
-			cairo_rectangle(crcells, MARGE_GAUCHE_GRILLE + i * taille_Col + 3, MARGE_HAUTE_GRILLE + (hauteur * taille_Lgn + 3),
+			cairo_rectangle(cells, MARGE_GAUCHE_GRILLE + i * taille_Col + 3, MARGE_HAUTE_GRILLE + (hauteur * taille_Lgn + 3),
 			taille_Col - 3, taille_Lgn - 3);
-			cairo_fill(crcells);
+			cairo_fill(cells);
 
 			if (vieillissement) {
 				sprintf(ageBuffer, "%d", ligne[i]);
@@ -108,10 +109,10 @@ void affiche_ligne (int c, int* ligne, int vieillissement, int hauteur, float ta
 		}
 	}
 
-	cairo_fill(crcells);
+	cairo_fill(cells);
 	cairo_stroke(cr);
 	cairo_destroy(cr);
-	cairo_destroy(crcells);
+	cairo_destroy(cells);
 		
 	return;
 }
@@ -121,7 +122,7 @@ void affiche_trait (int c, int hauteur, float taille_Lgn){
 	cr = cairo_create(surf);
 	
 	cairo_set_source_rgb(cr, 1, 1, 1);
-	cairo_set_line_width(cr, CAIRO_LINE_WIDTH);
+	cairo_set_line_width(cr, 2);
 	
 	cairo_move_to(cr, MARGE_GAUCHE_GRILLE, MARGE_HAUTE_GRILLE + (hauteur * taille_Lgn));
 
@@ -134,12 +135,12 @@ void affiche_trait (int c, int hauteur, float taille_Lgn){
 	cairo_destroy(cr);
 }
 
-void affiche_grille (grille g, int tempsEvolution, int comptageCyclique, int vieillissement, int tempsOscillation){
+void affiche_grille (grille g, int tempsEvo, int vieillissement, int tempsOsc){
 	int i, l=g.nbl, c=g.nbc;
 
 	char strTemps[255], strOscillation[255];
-	sprintf(strTemps, "Temps d'evolution: %d", tempsEvolution);
-	sprintf(strOscillation, "Oscilliation : %d", tempsOscillation);
+	sprintf(strTemps, "Temps d'evolution: %d", tempsEvo);
+	sprintf(strOscillation, "Oscilliation : %d", tempsOsc);
 
 	cairo_t *cr;
 	cr = cairo_create(surf);
@@ -181,10 +182,10 @@ void efface_grille () {
 
 
 void debut_jeu(grille *g, grille *gc) {
-	int tempsEvolution = 1;
+	int tempsEvo = 1;
 	int vieillissement = 0;
 	char next[N];
-	int tempsOscillation = -1; // -1 par défaut => oscillation non testée
+	int tempsOsc = -1; // -1 par défaut => oscillation non testée
 
 	int comptageCyclique = 1;
 	int (*compte_voisins_vivants) (int, int, grille) = compte_voisins_vivants_cycl;
@@ -195,13 +196,13 @@ void debut_jeu(grille *g, grille *gc) {
 		XNextEvent(cairo_xlib_surface_get_display(surf), &e);
 		
 		if (e.type==Expose && e.xexpose.count<1) {
-			affiche_grille(*g, tempsEvolution, comptageCyclique, vieillissement, tempsOscillation);
+			affiche_grille(*g, tempsEvo, vieillissement, tempsOsc);
 		} else if (e.type == KeyPress) {
 			if (e.xkey.keycode == 36 || e.xkey.keycode == 104) { // \n 
 				evolue(g,gc,compte_voisins_vivants,vieillissement);
-				tempsEvolution++;
+				tempsEvo++;
 				efface_grille();
-				affiche_grille(*g, tempsEvolution, comptageCyclique, vieillissement, tempsOscillation);
+				affiche_grille(*g, tempsEvo, vieillissement, tempsOsc);
 
 			} else if (e.xkey.keycode == 57) { // n
 				cairo_t *cr;
@@ -215,18 +216,22 @@ void debut_jeu(grille *g, grille *gc) {
 				cairo_move_to(cr, 20, 490);
 				cairo_show_text(cr, inputN);
 
-				scanf("%s", next);
+				XNextEvent(cairo_xlib_surface_get_display(surf), &e);
+				if (e.type == KeyPress){
+					if(){
+
+					}
+				}
 				init_grille_from_file(next, g);
 				alloue_grille(g->nbl, g->nbc, gc);
 
 
-				
-				tempsEvolution = 1; // Réinitialisation du temps
-				tempsOscillation = -1; // Réinitialisation de l'oscillation
+				tempsEvo = 1;
+				tempsOsc = -1;
 				alloue_grille (g->nbl, g->nbc, gc);
 				
 				efface_grille();
-				affiche_grille(*g, tempsEvolution, comptageCyclique, vieillissement, tempsOscillation);
+				affiche_grille(*g, tempsEvo, vieillissement, tempsOsc);
 
 			} else if (e.xkey.keycode == 54) { // c
 				
@@ -238,26 +243,26 @@ void debut_jeu(grille *g, grille *gc) {
 					compte_voisins_vivants = &(compte_voisins_vivants_cycl);
 				}
 				efface_grille();
-				affiche_grille(*g, tempsEvolution, comptageCyclique, vieillissement, tempsOscillation);
+				affiche_grille(*g, tempsEvo, vieillissement, tempsOsc);
 
 			} else if (e.xkey.keycode == 55) { // v
 				vieillissement = !vieillissement;
 				efface_grille();
-				affiche_grille(*g, tempsEvolution, comptageCyclique, vieillissement, tempsOscillation);
+				affiche_grille(*g, tempsEvo, vieillissement, tempsOsc);
 
 			} else if (e.xkey.keycode == 40) {
 				system("doxygen && firefox ./doc/html/index.html");
 			} else if (e.xkey.keycode == 32) { // o (oscillation)
-				tempsOscillation = oscillante(g, compte_voisins_vivants, vieillissement);
+				tempsOsc = oscillante(g, compte_voisins_vivants, vieillissement);
 				efface_grille();
-				affiche_grille(*g, tempsEvolution, comptageCyclique, vieillissement, tempsOscillation);
+				affiche_grille(*g, tempsEvo, vieillissement, tempsOsc);
 			}
 
 		} else if (e.type == ButtonPress) {
 			if (e.xbutton.button == 1) { // laft click
 				evolue(g,gc,compte_voisins_vivants,vieillissement);
 				efface_grille();
-				affiche_grille(*g, tempsEvolution, comptageCyclique, vieillissement, tempsOscillation);
+				affiche_grille(*g, tempsEvo, vieillissement, tempsOsc);
 			
 			}
 		}

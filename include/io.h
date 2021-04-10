@@ -67,11 +67,10 @@
      * \param g grille g
      * \param vieillissement toggle vieillisement
      * \param tempsEvolution temps
-     * \param comptageCyclique cycl ou non
      * \param tempsOscillation oscillation
      * \returns \c void
      */
-    void affiche_grille (grille g, int tempsEvolution, int comptageCyclique, int vieillissement, int tempsOscillation);
+    void affiche_grille (grille g, int tempsEvolution, int vieillissement, int tempsOscillation);
 
 
     // effacement d'une grille

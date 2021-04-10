@@ -32,11 +32,11 @@ libjeu.a: main.o grille.o jeu.o io.o
 
 clean: 
 	rm obj/* bin/* *.a
-	rmdir doc/html doc/latex
+	rm -r doc/html doc/latex
 
 
 dist: 
-	tar -cJf distr.tar.xz src/ include/ doc/ Doxyfile makefile grilles/
+	tar -cJf distr.tar.xz src/ include/ Doxyfile makefile grilles/
 
 doc:
 	@mkdir -p $(DOC)
