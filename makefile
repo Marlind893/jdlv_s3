@@ -23,7 +23,7 @@ jdlv: libjeu.a
 
 libjeu.a: main.o grille.o jeu.o io.o
 	ar -crv libjeu.a $(OPATH)main.o $(OPATH)grille.o $(OPATH)jeu.o $(OPATH)io.o
-
+	
 
 %.o: %.c
 	@mkdir -p $(OPATH)
@@ -31,14 +31,15 @@ libjeu.a: main.o grille.o jeu.o io.o
 
 
 clean: 
-	rm obj/* bin/* *.a
-	rm -r doc/html doc/latex
-
+	rm *.a
+	rm -r doc/ obj/ bin/ 
+	
 
 dist: 
 	tar -cJf distr.tar.xz src/ include/ Doxyfile makefile grilles/
 
-doc:
+
+docs:
 	@mkdir -p $(DOC)
-	doxygen
+	doxygen	
 

@@ -1,6 +1,6 @@
 #include "jeu.h"
 
-int compte_voisins_vivants_non_cycl (int i, int j, grille g){
+int compte_voisins_vivants_cycl (int i, int j, grille g){
 	int v = 0, l=g.nbl, c = g.nbc;
 	v+= est_vivante(modulo(i-1,l),modulo(j-1,c),g);
 	v+= est_vivante(modulo(i-1,l),modulo(j,c),g);
@@ -14,7 +14,7 @@ int compte_voisins_vivants_non_cycl (int i, int j, grille g){
 	return v; 
 }
 
-int compte_voisins_vivants_cycl (int i, int j, grille g){
+int compte_voisins_vivants_non_cycl (int i, int j, grille g){
 	int v = 0, l=g.nbl, c = g.nbc;
 	v+= est_vivante(modulo1(i-1,l),modulo1(j-1,c),g);
 	v+= est_vivante(modulo1(i-1,l),modulo1(j,c),g);

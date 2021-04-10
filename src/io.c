@@ -184,21 +184,23 @@ void efface_grille () {
 void debut_jeu(grille *g, grille *gc) {
 	int tempsEvo = 1;
 	int vieillissement = 0;
-	char next[N];
 	int tempsOsc = -1; // -1 par défaut => oscillation non testée
 
 	int comptageCyclique = 1;
 	int (*compte_voisins_vivants) (int, int, grille) = compte_voisins_vivants_cycl;
 
 	XEvent e;
+	char keybuf[255];
+	KeySym key;
 
 	while(e.xkey.keycode != 38 && e.xbutton.button != 3) { // q and right click
 		XNextEvent(cairo_xlib_surface_get_display(surf), &e);
+		char next[100] = "grilles/grille";
 		
 		if (e.type==Expose && e.xexpose.count<1) {
 			affiche_grille(*g, tempsEvo, vieillissement, tempsOsc);
 		} else if (e.type == KeyPress) {
-			if (e.xkey.keycode == 36 || e.xkey.keycode == 104) { // \n 
+			if (e.xkey.keycode == 36 || e.xkey.keycode == 104) { // Entrée 
 				evolue(g,gc,compte_voisins_vivants,vieillissement);
 				tempsEvo++;
 				efface_grille();
@@ -212,26 +214,28 @@ void debut_jeu(grille *g, grille *gc) {
 				libere_grille(gc);
 
 				char inputN[255];
-				sprintf(inputN, "Entrez la nouvelle grillle:        (format: grilles/grilleX.txt).\n");
+				sprintf(inputN, "Entrez la nouvelle grillle:        (format: int X).\n");
 				cairo_move_to(cr, 20, 490);
 				cairo_show_text(cr, inputN);
-
+				
 				XNextEvent(cairo_xlib_surface_get_display(surf), &e);
 				if (e.type == KeyPress){
-					if(){
-
-					}
+					XLookupString(&e.xkey, keybuf, sizeof(keybuf), &key, NULL);
+					strcat(next, keybuf);
+					strcat(next, ".txt");
 				}
+				
 				init_grille_from_file(next, g);
 				alloue_grille(g->nbl, g->nbc, gc);
 
-
+				
 				tempsEvo = 1;
 				tempsOsc = -1;
 				alloue_grille (g->nbl, g->nbc, gc);
 				
 				efface_grille();
 				affiche_grille(*g, tempsEvo, vieillissement, tempsOsc);
+
 
 			} else if (e.xkey.keycode == 54) { // c
 				
@@ -250,8 +254,6 @@ void debut_jeu(grille *g, grille *gc) {
 				efface_grille();
 				affiche_grille(*g, tempsEvo, vieillissement, tempsOsc);
 
-			} else if (e.xkey.keycode == 40) {
-				system("doxygen && firefox ./doc/html/index.html");
 			} else if (e.xkey.keycode == 32) { // o (oscillation)
 				tempsOsc = oscillante(g, compte_voisins_vivants, vieillissement);
 				efface_grille();
@@ -259,7 +261,7 @@ void debut_jeu(grille *g, grille *gc) {
 			}
 
 		} else if (e.type == ButtonPress) {
-			if (e.xbutton.button == 1) { // laft click
+			if (e.xbutton.button == 1) { // left click
 				evolue(g,gc,compte_voisins_vivants,vieillissement);
 				efface_grille();
 				affiche_grille(*g, tempsEvo, vieillissement, tempsOsc);
